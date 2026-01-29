@@ -2,7 +2,6 @@ DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS bots;
 
--- Clients (Bot Owners)
 CREATE TABLE bots (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     token TEXT NOT NULL,
@@ -12,7 +11,6 @@ CREATE TABLE bots (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- End Users
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     bot_id INTEGER,
@@ -23,7 +21,6 @@ CREATE TABLE users (
     UNIQUE(bot_id, telegram_id)
 );
 
--- Transactions
 CREATE TABLE transactions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     bot_id INTEGER,
